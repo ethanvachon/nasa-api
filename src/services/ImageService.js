@@ -6,7 +6,6 @@ class ImageService {
     try {
       const res = await nasaApi.get("planetary/apod?api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw&date="+date)
       AppState.apod = res.data
-      console.log(AppState.apod)
     } catch (error) {
       console.error(error)
     }
