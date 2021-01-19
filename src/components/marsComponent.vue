@@ -1,39 +1,32 @@
 <template>
   <form @submit.prevent="searchDate()" class="mt-5">
-    <input type="date" v-model="state.date">
+    <input type="number" max="1000" v-model="state.date">
     <button type="submit">Submit</button>
   </form>
-  <apodImg
-    :url="url"
-    :desc="desc"
+  <mars-img
+    :img="img"
   />
 </template>
-
 <script>
 import {reactive} from 'vue'
 import {computed} from 'vue'
 import {imageService } from "../services/ImageService.js"
 import { AppState } from "../AppState.js"
-import apodImg from "./apodImg"
+import marsImg from "./marsImg"
 export default {
-  name: 'apod',
+  name:"mars",
   setup(){
     const state = reactive({
-      date: '',
+      date:''
     })
     return{
       state,
       searchDate(){
-        imageService.findApodImage(state.date)
+        imageService.findMarsImage(state.date)
       },
-      url: computed(() => AppState.apod.url),
-      desc: computed(()=> AppState.apod.explanation)
+      img: computed(()=> AppState.mars),
     }
   },
-  components: {apodImg}
+  components: {marsImg}
 }
 </script>
-
-<style scoped>
-
-</style>

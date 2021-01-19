@@ -1,17 +1,14 @@
 <template>
   <img
-    :src="url"
+    :src="img"
   >
-  <p>{{desc}}</p>
 </template>
 
 <script>
 export default {
-  name: 'apodImg',
+  name: 'marsImg',
   props: {
-    url: String,
-    desc: String
+    img: String,
   }
-
 }
 </script>

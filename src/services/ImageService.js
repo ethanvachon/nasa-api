@@ -4,11 +4,16 @@ import {nasaApi} from "./AxiosService"
 class ImageService {
   async findApodImage(date){
     try {
-      const res = await nasaApi.get("apod?api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw&date="+date)
-      AppState.apod = res.data.url
+      const res = await nasaApi.get("planetary/apod?api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw&date="+date)
+      AppState.apod = res.data
+      console.log(AppState.apod)
     } catch (error) {
       console.error(error)
     }
+  }
+  async findMarsImage(date){
+    const res = await nasaApi.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol="+date+"&camera=fhaz&api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw")
+    AppState.mars = res.data.photos[0].img_src
   }
 }
 
