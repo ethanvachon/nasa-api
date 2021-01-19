@@ -3,7 +3,7 @@
     <input type="date" v-model="state.date">
     <button type="submit">Submit</button>
   </form>
-  <apodImg
+  <apod-img
     :url="url"
     :desc="desc"
   />

@@ -4,6 +4,7 @@
     <button type="submit">Submit</button>
   </form>
   <mars-img
+    :v-if="img"
     :img="img"
   />
 </template>
