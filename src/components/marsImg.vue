@@ -8,7 +8,7 @@
 export default {
   name: 'marsImg',
   props: {
-    img: String,
+    img: Array,
   }
 }
 </script>

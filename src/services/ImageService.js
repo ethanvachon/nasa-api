@@ -12,7 +12,7 @@ class ImageService {
   }
   async findMarsImage(date){
     try {
-      const res = await nasaApi.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol="+date+"&camera=fhaz&api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw")
+      const res = await nasaApi.get("mars-photos/api/v1/rovers/curiosity/photos?sol="+date+"&camera=fhaz&api_key=483EbwwjFiW4JpZkFEDcrPhcL2g84f2rrs1oeljw")
     AppState.mars = res.data.photos[0].img_src
     } catch (error) {
       console.error(error)
